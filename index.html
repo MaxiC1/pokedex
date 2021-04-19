@@ -29,7 +29,46 @@
                 <span>Registrar Pokemon</span>
               </div>
               <div class="card-body">
-                
+                <div class="mb-3">
+                  <label for="nombre-txt" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombre-txt">
+                </div>
+                <div class="mb-3">
+                  <label for="Descripcion-txt" class="form-label">Descripcion</label>
+                  <textarea id="Descripcion-txt"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="Legendario-rb" class="form-label">Legendario</label>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="Legendario-rb" id="Legendario-si" class="form-check-input">
+                    <label for="Legendario-si" class="form-check-label">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" name="Legendario-rb" id="Legendario-no" class="form-check-input">
+                    <label for="Legendario-no" class="form-check-label">No</label>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="tipo-select" class="form-label">Tipo</label>
+                  <select class="form-select" id="tipo-select" >
+                    <option value="1">Seleccionar</option>
+                    <option value="2">Planta</option>
+                    <option value="3">Fuego</option>
+                    <option value="4">Electrico</option>
+                    <option value="5">Agua</option>
+                    <option value="6">Normal</option>
+                  </select>
+                </div>
+              </div>
+              <div class="card-footer">
+                 <div class="row">
+                   <div class="col-6">
+                     <button type="button" id="registrar-btn" class="btn btn-success">Registrar</button>
+                   </div>
+                   <div class="col text-end">
+                      <button type="button" id="limpiar-btn" class="btn btn-info">Limpiar</button>
+                   </div>
+                 </div>
               </div>
             </div>
          </div>
@@ -39,7 +78,32 @@
                <span>Pokedex</span>
              </div>
              <div class="card-body">
-
+              <table class="table table-bodered table-hover table-striped">
+                <thead class="bg-dark text-white">
+                  <tr>
+                    <th>NRO</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Descripcion</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Pikachu</td>
+                    <td>Electrico</td>
+                    <td>El raton electrico</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Charmander</td>
+                    <td>Fuego</td>
+                    <td>El vamoh a calmarno de fuego</td>
+                  </tr>
+                </tbody>
+              </table>
              </div>
            </div>
          </div>
@@ -51,15 +115,8 @@
 
     </footer>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
+    <script src="vendor/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
