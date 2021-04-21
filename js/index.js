@@ -20,5 +20,5 @@ document.querySelector("#registrar-btn").addEventListener("click", ()=>{
     let tipo = document.querySelector("#tipo-select").value;
     let legendario = document.querySelector("#Legendario-si").checked;
     let descripcion = tinymce.get("Descripcion-txt").getContent();
-    console.log("Ambar Linda", nombre, " ", tipo, " ", legendario, " ", descripcion);
+    console.log("Hola Mundo!", nombre, " ", tipo, " ", legendario, " ", descripcion);
 });
