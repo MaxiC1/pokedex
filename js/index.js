@@ -15,7 +15,30 @@ tinymce.init({
     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
   });
 
-const pokemones = [];
+const enviarProfesorOak = async function(){
+  //siempre this me devuelve una referencia al elemento que llamó a la funcion
+  //En este caso es el boton
+  let nro = this.nro;
+  let res = await Swal.fire({
+    title: "Desea realmente continuar?",
+    text: "Esta intentando enviar el pokemon al profesor oak, esto no se puede revertir",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Si! Hazlo!"
+  });
+  if(res.isConfirmed){
+    pokemones.splice(nro,1);
+    cargarTabla();
+    Swal.fire("Pokemon descartado", "Pokemon enviado al profesor", "info");
+  }else {
+    Swal.fire("Cancelado", "Operacion cancelada", "error");
+  }
+  //el splice sirve para eliminar objetos de listas
+  //el splice ordena la lista despues de eliminar
+  //y uno puede retornar los valores eliminados y guardarlos en una variable
+};
+
+const pokemones = []; //Definir arreglo
 const cargarTabla = ()=>{
   //1. Obtener una referencia a la tabla
   let tbody = document.querySelector("#tbody-tabla");
@@ -35,7 +58,6 @@ const cargarTabla = ()=>{
     //Definir lo que va en la tabla
     tdNro.innerText = i + 1;
     tdNombre.innerText = p.nombre;
-    //TODO: El tipo tiene que ser un icono
     let tipo = document.createElement("i");
     if(p.tipo == "1"){
       //Tipo planta <i class="fas fa-leaf"></i>
@@ -55,7 +77,19 @@ const cargarTabla = ()=>{
     }
     tdTipo.appendChild(tipo);
     tdDescripcion.innerHTML = p.descripcion;
-    //TODO: Que hago con las acciones!
+    //Cuando quiero agregar un elemento dentro de otro: appendChild
+    //Cuando quiero definir texto: innerText
+    //Cuando quiero definir directamente el html: innerHTML
+
+    let boton = document.createElement("button");
+    boton.classList.add("btn", "btn-danger");
+    boton.innerText = "Enviar al profesor Oak";
+    boton.nro = i;
+    tdAcciones.appendChild(boton);
+    tdAcciones.classList.add("text-center");
+
+    boton.addEventListener("click", enviarProfesorOak);
+
     //5. Agregar los td al tr
     tr.appendChild(tdNro);
     tr.appendChild(tdNombre);
